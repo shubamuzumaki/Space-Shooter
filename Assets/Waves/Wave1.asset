@@ -19,4 +19,4 @@ MonoBehaviour:
   enemyCount: 10
   randomFactor: 2
   spawnRate: 0.8
-  moveSpeed: 10
+  moveSpeed: 8

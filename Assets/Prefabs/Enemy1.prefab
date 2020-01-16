@@ -115,13 +115,16 @@ MonoBehaviour:
     type: 3}
   deathSFX: {fileID: 8300000, guid: e94d745a7c0a43c4d904d479db50fb95, type: 3}
   laserSFX: {fileID: 8300000, guid: 386c3faed5f680a42814a715fec1a4e5, type: 3}
-  health: 2
-  laserSpeed: 10
+  health: 30
+  scoreValue: 10
+  laserSpeed: 11.31
   minTimeBetweenShots: 0.2
-  maxTimeBetweenShots: 2
+  maxTimeBetweenShots: 3.12
   durationOfExplosion: 1
   deathSFXVolume: 1
   laserSFXVolume: 0.18
+  probability: 15
+  powerDropSpeed: 6
 --- !u!58 &3894749166657334644
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -150,7 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313fb528b8cfc6f4e963a00c5ec5579d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 10
+  indestructible: 0
 --- !u!50 &2688293382019422828
 Rigidbody2D:
   serializedVersion: 4

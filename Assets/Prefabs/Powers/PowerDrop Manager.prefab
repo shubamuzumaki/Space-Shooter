@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5958471663854180581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5436970249208626478}
+  - component: {fileID: -1921571947198098141}
+  m_Layer: 0
+  m_Name: PowerDrop Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5436970249208626478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958471663854180581}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1921571947198098141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5958471663854180581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35bbdb0b3b176c41a75857db4e9b214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  legendaryPowerUp: []
+  rarePowerUp:
+  - {fileID: 3726820189601961962, guid: 67fa0947a394bf24594fb362e70a37e7, type: 3}
+  - {fileID: 790955050662606367, guid: 05858d3e4ce472745a3912588d0b3ce6, type: 3}
+  commonPowerUp:
+  - {fileID: 3726820189601961962, guid: cf4b7f2a005681c4e8079241a42b95d1, type: 3}
+  - {fileID: 1327592491860545476, guid: 9a3063bb9b5adab448a3b41fc4cda536, type: 3}
+  - {fileID: 790955050662606367, guid: 05858d3e4ce472745a3912588d0b3ce6, type: 3}
+  legendaryProbab: 0
+  rareProbab: 32

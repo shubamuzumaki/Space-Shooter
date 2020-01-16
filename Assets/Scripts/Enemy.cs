@@ -20,9 +20,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] [Range(0,1)] float deathSFXVolume = 0.7f;
     [SerializeField] [Range(0,1)] float laserSFXVolume = 0.3f;
 
+    [Header("Power Drops")]
+    [SerializeField] [Range(0,100)] int probability = 20;
+    [SerializeField] [Range(0,10)] float powerDropSpeed = 3.5f;
+
+    //cached Params
+    PowerDropManager powerDropper;
 
     private void Start() 
     {
+        powerDropper = PowerDropManager.GetInstance();
         StartCoroutine(Fire());
     }
 
@@ -41,8 +48,10 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) 
     {
         var damageDealer = other.gameObject.GetComponent<DamageDealer>();
-        if(!damageDealer) return;
-            ProcessHit(damageDealer);
+        if(!damageDealer) 
+            return;
+        
+        ProcessHit(damageDealer);
     }
     
     private void ProcessHit(DamageDealer damageDealer)
@@ -55,10 +64,30 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        FindObjectOfType<GameSession>().AddToScore(scoreValue);
+        GameSession.GetInstance().EnemyDied(scoreValue);
         Destroy(gameObject);  
         var explosion = Instantiate(explosionVFX,transform.position,transform.rotation);
         Destroy(explosion, durationOfExplosion);
         AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
+
+        DropPowerUp();
+    }
+
+    private void DropPowerUp()
+    {
+        if(Random.Range(0,100) < probability)
+        {
+            if(powerDropper == null)
+            {
+                Debug.Log("No PowerDropper Found");
+                return;
+            }
+
+            var power = powerDropper.GetPowerDrop();
+            if(power == null)
+                return;
+            var drop = Instantiate(power,transform.position,Quaternion.identity);
+            drop.GetComponent<Rigidbody2D>().velocity += Vector2.down * powerDropSpeed;
+        }
     }
 }

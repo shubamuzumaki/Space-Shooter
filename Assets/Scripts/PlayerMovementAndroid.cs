@@ -7,9 +7,13 @@ public class PlayerMovementAndroid : MonoBehaviour
 {
     [SerializeField] [Range(0, 1)] float maxYAllowed = 0.4f;
     [SerializeField] [Range(0, 0.1f)] float padding = 0.05f;
+    [SerializeField] const float DOUBLE_CLICK_TIME = 0.3f; 
 
     private Vector3 mouseStartPos;
     private Vector3 playerStartPos;
+    private Coroutine doubleClickCoroutine;
+    private bool isFirstClickRegistered = false;
+    private PowerController powerController;
 
     private float xMin;
     private float xMax;
@@ -22,6 +26,7 @@ public class PlayerMovementAndroid : MonoBehaviour
     {
         Debug.Log("Andoid Controls initialized");
         SetUpMoveBoundaries();
+        powerController = GetComponent<PowerController>();
     }
 
     void SetUpMoveBoundaries()
@@ -37,6 +42,29 @@ public class PlayerMovementAndroid : MonoBehaviour
     void Update()
     {
         Move();
+        ActivatePowerUp();
+    }
+
+    private void ActivatePowerUp()
+    {
+        //check for double tap
+        if(Input.GetMouseButtonDown(0))
+        {
+            if (doubleClickCoroutine != null)
+                StopCoroutine(doubleClickCoroutine);
+
+            if (isFirstClickRegistered)
+                powerController.ActivatePowerUp();
+            else
+                doubleClickCoroutine = StartCoroutine(DoubleTapCoroutine());
+        }
+    }
+
+    IEnumerator DoubleTapCoroutine()
+    {
+        isFirstClickRegistered = true;
+        yield return new WaitForSeconds(DOUBLE_CLICK_TIME);
+        isFirstClickRegistered = false;
     }
 
     private void Move()

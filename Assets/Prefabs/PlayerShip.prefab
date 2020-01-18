@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2842135055996145951}
   - component: {fileID: 3119221143001752013}
   - component: {fileID: -1710692304162113068}
+  - component: {fileID: 982793489}
   m_Layer: 8
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49139767d35e5345a227e1de0e39b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 100
   deathSFX: {fileID: 8300000, guid: ad0a505cfc9c50a4b9d997aa7ce95d81, type: 3}
   deathSFXVolume: 0.44
   shield: {fileID: 6998021705411953398}
@@ -180,7 +181,20 @@ MonoBehaviour:
   movementSpeed: 15
   maxYAllowed: 0.4
   padding: 0.019
-  joystick: {fileID: 0}
+--- !u!114 &982793489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842135055996145938}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78dcc65edd6af0148af6a70aa88e66bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxYAllowed: 0.4
+  padding: 0.019
 --- !u!1 &6998021705411953398
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +323,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 50d5d95d8546c134884923b7cc55e509, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.90573776, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

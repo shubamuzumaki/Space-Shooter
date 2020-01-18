@@ -21,8 +21,8 @@ public class PowerController : MonoBehaviour
 
     public void addPower(PowerUp power)
     {
-        if(this.power == null)
-            this.power = power;
+        //if(this.power == null)
+        this.power = power;
     }
 
     void HandlePowers()

@@ -1,19 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] GameObject startMenuCanvas;
+    [SerializeField] GameObject settingCanavas;
+    [SerializeField] GameObject leaderboardCanvas;
+
+    public void OpenSettings()
     {
-        
+        settingCanavas.SetActive(true);
+        startMenuCanvas.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void openMainMenu()
     {
-        if(Input.GetButtonDown("Fire1"))
-            FindObjectOfType<LevelManager>().LoadGame();
+        startMenuCanvas.SetActive(true);
+        settingCanavas.SetActive(false);
+        leaderboardCanvas.SetActive(false);
     }
+
+    public void OpenLeaderboard()
+    {
+        leaderboardCanvas.SetActive(true);
+        startMenuCanvas.SetActive(false);
+    }
+
 }
